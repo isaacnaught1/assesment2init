@@ -34,9 +34,11 @@ const cart = [
 ]
 
 //CODE HERE
-
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-
+const initialValue = 0
+ const summedPrice = cart.reduce((acc, curr) => {
+ return acc + curr.price
+ },0)
+ console.log(summedPrice)
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -54,7 +56,10 @@ const cart = [
 */
 
 //CODE HERE
-
+function calcFinalPrice (cartTotal, couponValue,tax){
+    return ((cartTotal + (cartTotal * tax)) - couponValue)
+}
+console.log(calcFinalPrice(50, 10, .06))
 
 
 //////////////////PROBLEM 3////////////////////
@@ -79,7 +84,7 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
-
+They would need to know the name to make sure it goes to the right person, the phone number to contact that person if they needed to, the address to make sure deliveries go to the right places, and the items ordered so the restauaunt can keep inventory on what they need to order more or less of.
 */
 
 /*
@@ -88,3 +93,10 @@ const cart = [
 */
 
 //CODE HERE
+
+let customer = {
+    name: "name",
+    phone: "phoneNumber",
+    address: "address",
+    itemsOrdered: "itemsOrdered"
+}

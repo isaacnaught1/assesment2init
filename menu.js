@@ -32,7 +32,7 @@
 
 //CODE HERE
 
-const Pizza  = {
+const pizza  = {
     name: 'Pepperoni',
     price: 6.99,
     category: 'entree',
@@ -53,7 +53,7 @@ const Pizza  = {
 
 //CODE HERE
 //let pizzaP = Pizza.
-console.log(Pizza.popularity)
+console.log(pizza.popularity)
 /*
     Second, log the second tag in your pizza's
     tags array.
@@ -62,7 +62,7 @@ console.log(Pizza.popularity)
 */
 
 //CODE HERE
-console.log(Pizza.tags[1])
+console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -72,8 +72,8 @@ console.log(Pizza.tags[1])
 */
 
 //CODE HERE
-const {price: pepperoniPrice} = Pizza
-console.log(pepperoniPrice)
+let {price} = pizza
+console.log(`$${price}`)
 
 /*
     Fourth, and last, destructure the category
@@ -84,8 +84,8 @@ console.log(pepperoniPrice)
 
 //CODE HERE
 
-const {category: pepperoniCategory} = Pizza
-console.log(pepperoniCategory)
+let {category} = pizza
+console.log(category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -158,7 +158,9 @@ foodArr = [
 
 //CODE HERE
 
- const filteredFood = foodArr.filter((tags) === "crunchy")
+ const filteredFood = foodArr.filter((e) => {
+    return e.tags.includes("beef")
+ })
 
  console.log(filteredFood)
 
@@ -205,6 +207,36 @@ foodArr = [
 
 //CODE HERE
 
+function filterByProperty(property, number, type){
+    let newFilter = foodArr.filter((e) => {
+        if(type === "above"){
+            if (property === "price"){
+                return e.price > number
+            }else if (property === "popularity"){
+                return e.popularity > number
+            }else if (property === "rating"){
+                return e.rating > number
+            }else{
+                console.log("please use valid parameters")
+            }
+        } else if(type === "below"){
+            if(property === "price"){
+                return e.price < number
+            }else if (property === "popularity"){
+                return e.popularity < number
+            }else if  (property === "rating"){
+                return e.rating < number
+            }else{
+                console.log("please use valid parametrers")
+            }
+        }else{
+            console.log("please use valid parametrers")
+
+        }
+    })
+    return newFilter
+}
+
 
 /*
     Invoke the `filterByProperty` function passing
@@ -214,3 +246,5 @@ foodArr = [
 */
 
 //CODE HERE
+
+console.log(filterByProperty("popularity", 2, "above"))
