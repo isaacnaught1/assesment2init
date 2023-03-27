@@ -59,7 +59,7 @@ const initialValue = 0
 function calcFinalPrice (cartTotal, couponValue,tax){
     return ((cartTotal + (cartTotal * tax)) - couponValue)
 }
-console.log(calcFinalPrice(50, 10, .06))
+
 
 
 //////////////////PROBLEM 3////////////////////
